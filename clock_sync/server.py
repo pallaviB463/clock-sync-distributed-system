@@ -1,7 +1,7 @@
 import socket
 import time
 import threading
-from security import encrypt, decrypt
+from clock_sync.security import encrypt, decrypt
 
 SERVER_IP = "0.0.0.0"
 PORT = 5000

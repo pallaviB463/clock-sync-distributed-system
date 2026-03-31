@@ -1,7 +1,7 @@
 import socket
 import time
 import random
-from security import encrypt, decrypt
+from clock_sync.security import encrypt, decrypt
 
 SERVER_IP = "127.0.0.1"
 PORT = 5000

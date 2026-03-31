@@ -8,6 +8,9 @@ PORT = 5000
 
 NUM_CLIENTS = 20
 
+delays = []  # store all delays
+lock = threading.Lock()
+
 def simulate_client(i):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -23,6 +26,7 @@ def simulate_client(i):
             t4 = time.time()
 
             decrypted = decrypt(data)
+
             if decrypted:
                 parts = decrypted.split(":")
                 if len(parts) == 5:
@@ -30,11 +34,13 @@ def simulate_client(i):
                     t1, t2, t3 = float(t1), float(t2), float(t3)
 
                     delay = (t4 - t1) - (t3 - t2)
-                    print(f"[Client {i}] Delay: {delay:.6f}")
+
+                    # thread-safe append
+                    with lock:
+                        delays.append(delay)
 
         except:
-            print(f"[Client {i}] Timeout")
-
+            pass
 
 threads = []
 start = time.time()
@@ -49,4 +55,10 @@ for t in threads:
 
 end = time.time()
 
-print("\nTOTAL TIME:", end - start)
+# Save results to file
+with open("results.txt", "w") as f:
+    for d in delays:
+        f.write(f"{d}\n")
+
+print("Test complete. Results saved to results.txt")
+print("Total time:", end - start)
