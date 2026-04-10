@@ -125,7 +125,7 @@ clock-sync/
 - Configurable encryption algorithms
 - Web dashboard for monitoring synchronized clients
 
-##  Teammates: Srujana K (AM128) , Videesha Koota (AM141)
+##  Teammates: Srujana K (AM128) , Videesha Koota (AM140)
 ## License
 
 MIT License
