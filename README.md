@@ -1,4 +1,4 @@
-# Clock Sync
+# Distributed Clock Syncchronization system
 
 A Python-based distributed clock synchronization system that uses client-server architecture with cryptographic security. This project implements a network time synchronization protocol where clients request accurate time from a central server, using encrypted messages to ensure data integrity and confidentiality.
 
@@ -125,6 +125,7 @@ clock-sync/
 - Configurable encryption algorithms
 - Web dashboard for monitoring synchronized clients
 
+##  Teammates: Srujana K (AM128) , Videesha Koota (AM141)
 ## License
 
 MIT License
